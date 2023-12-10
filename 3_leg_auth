@@ -1,0 +1,15 @@
+import tweepy
+from keys import *
+
+
+# Tweepy Docs 3 leg OAuth
+oauth1_user_handler = tweepy.OAuth1UserHandler(
+    api_key,
+    api_secret,
+    callback="https://twitter.com"
+)
+
+print(oauth1_user_handler.get_authorization_url())
+# print(oauth1_user_handler.get_authorization_url(signin_with_twitter=True))
+
+tweepy.API(oauth1_user_handler.set_access_token(access_token, access_secret))
